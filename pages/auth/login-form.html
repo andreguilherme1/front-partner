@@ -1,0 +1,104 @@
+<form id="form-login" class="row g-3 needs-validation" novalidate>
+  <div class="container">
+    <div class="login-box">
+      <h1>Acessar</h1>
+      <div class="form-group">
+        <label for="username-login" class="form-label"></label>
+        <input type="text" class="form-control" id="username-login" placeholder="Usuário" required>
+        <div class="valid-feedback">
+          Nome preenchido
+        </div>
+        <div class="invalid-feedback">
+          Nome é obrigatório
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password-login" class="form-label"></label>
+        <input type="password" class="form-control" id="password-login" placeholder="Senha" required>
+        <div class="valid-feedback">
+          Senha preenchida
+        </div>
+        <div class="invalid-feedback">
+          Senha é obrigatória
+        </div>
+      </div>
+      <div class="form-options">
+        <a href="#">Esqueceu a senha?</a>
+      </div>
+      <div class="col-12" style="display: flex; gap: 10px">
+        <button onclick="login()" style="width: inherit;" id="logar-btn" class="botao" type="button">Entrar</button>
+        <button onclick="clearForm()" style="width: inherit;" type="button" class="botao">Limpar</button>
+      </div>
+      <!-- Div para exibir mensagens de erro -->
+      <div id="error-message"></div>
+    </div>
+  </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  function clearForm() {
+    setTimeout(() => {
+      $("form").removeClass("was-validated");
+    }, 1);
+    $("form").trigger("reset");
+    $("#error-message").empty(); // Limpar a mensagem de erro ao limpar o formulário
+  }
+
+  async function login() {
+    var username = document.getElementById("username-login").value;
+    var password = document.getElementById("password-login").value;
+    var errorMessage = document.getElementById("error-message");
+
+    var user = {
+      username: username,
+      password: password,
+    };
+
+    let url = "https://api-fullstack-base.onrender.com/login";
+
+    if (username === "" || password === "") {
+      errorMessage.innerHTML = "<br><div class='alert alert-danger'>Por favor, preencha todos os campos.</div>";
+      return;
+    }
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        mode: 'cors'
+      });
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          errorMessage.innerHTML = "<br><div class='alert alert-danger'>Usuário ou senha incorretos. Por favor, tente novamente.</div>";
+        } else {
+          throw new Error(`Erro na requisição: ${response.statusText}`);
+        }
+      } else {
+        const data = await response.json();
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', user.username);
+        await tableShow("dashboard");
+
+        console.log('user', user.username);
+
+        $("#userName").text('Aluno: ' + user.username.toUpperCase());
+
+        $(".menu-login").hide();
+        $(".menu-nova-conta").hide();
+        $(".menu-logout").show();
+        $("#userName").show();
+      }
+    } catch (error) {
+      errorMessage.innerHTML = "<br><div class='alert alert-danger'>Ocorreu um erro. Por favor, tente novamente.</div>";
+      console.log(error);
+    }
+  }
+</script>

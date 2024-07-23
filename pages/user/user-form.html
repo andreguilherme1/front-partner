@@ -1,0 +1,46 @@
+	<!-- titulo cadastro de itens -->
+	
+	<form class="row g-3 needs-validation" novalidate>
+
+		<input id="index" type="hidden">
+		<!-- colunas do table -->
+<div class="container">
+  <div class="login-box">
+    <h1>Cadastro de alunos</h1>
+		<div class="form-group" style="margin-bottom: -10px;">
+			<label for="username" class="form-label"></label>
+			<input type="text" class="form-control" id="username" placeholder="Nome" required>
+			<div class="valid-feedback">
+				Nome preenchido
+			</div>
+			<div class="invalid-feedback">
+				Nome é obrigatório
+			</div>
+		</div>
+		<div class="form-group" style="margin-bottom: -10px;">
+			<label for="email" class="form-label"></label>
+			<input type="email" class="form-control" id="email" placeholder="E-mail" required>
+			<div class="valid-feedback">
+				Email preenchido
+			</div>
+			<div class="invalid-feedback">
+				Email é obrigatório
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="password" class="form-label"></label>
+			<input type="text" class="form-control" id="password" placeholder="Senha" required>
+			<div class="valid-feedback">
+				Senha preenchida
+			</div>
+			<div class="invalid-feedback">
+				Senha é obrigatória
+			</div>
+		</div>
+		<div class="col-12" style="display: flex; gap: 10px">
+      <button onclick="saveUser(); tableShow('dashboard');" class="botao">Salvar</button>
+	  <button onclick="window.location.href = 'https://front-fullstack-base9.vercel.app/'" type="button" class="botao">Cancelar</button>
+		</div>
+  </div>
+</div>
+	</form>

@@ -1,0 +1,26 @@
+	<div class="usertable">
+		<!-- titulo lista de itens -->
+		<h1>Lista de Alunos</h1>
+		<!-- Botao de criar novo item -->
+		<div class="d-flex gap-2">
+			<button onclick="formShow('user')" class="botao" type="button">Cadastrar novo Aluno</button>
+			<button onclick="tableShow('dashboard')" class="botao" type="button">Voltar</button>
+		</div>
+		<br>
+		<table class="table" style="text-align: center;">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nome</th>
+					<th scope="col">Email</th>
+					<th scope="col">Ações</th>
+				</tr>
+			</thead>
+			<tbody id="table-user">
+			</tbody>
+		</table>
+		<span style="text-align: center;" id="mensage-table"></span>
+		<script>
+			getUsers()
+		</script>
+	</div>

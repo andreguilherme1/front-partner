@@ -1,0 +1,88 @@
+	<!-- titulo cadastro de itens -->
+	
+	<form class="row g-3 needs-validation" novalidate>
+
+		<input id="index-curso" type="hidden">
+		<!-- colunas do table -->
+<div class="container">
+    <div class="login-box">
+      <h1 style="margin-top: 30px;">Cadastro de Cursos</h1>
+		<div class="form-group col-md-12" style="margin-bottom: -10px;">
+			<label for="nome" class="form-label"></label>
+			<input type="text" class="form-control" id="nome" placeholder="Nome do curso" required>
+			<div class="valid-feedback">
+				Nome do curso preenchido
+			</div>
+			<div class="invalid-feedback">
+				Nome do curso é obrigatório
+			</div>
+		</div>
+    
+		<div class="form-group col-md-12" style="margin-bottom: -10px;">
+			<label for="descricao" class="form-label"></label>
+			<input type="text" class="form-control" id="descricao" placeholder="Descrição" required>
+			<div class="valid-feedback">
+				Descrição preenchido
+			</div>
+			<div class="invalid-feedback">
+				Descrição é obrigatório
+			</div>
+		</div>
+    
+		<div class="form-group col-md-12" style="margin-bottom: -10px;">
+			<label for="duracao_semanas" class="form-label"></label>
+			<input type="text" class="form-control" id="duracao_semanas" placeholder="Duração em semanas" required>
+			<div class="valid-feedback">
+				Duração em semanas preenchida
+			</div>
+			<div class="invalid-feedback">
+				Duração em semanas é obrigatória
+			</div>
+		</div>
+    
+    <div class="form-group col-md-12" style="margin-bottom: -10px;">
+      <label for="n_aulas" class="form-label"></label>
+      <input type="text" class="form-control" id="n_aulas" placeholder="Número de aulas" required>
+      <div class="valid-feedback">
+        Número de aulas preenchido
+      </div>
+      <div class="invalid-feedback">
+        Número de aulas é obrigatório
+      </div>
+    </div>
+    
+    <div class="form-group col-md-12" style="margin-bottom: -10px;">
+      <label for="nivel" class="form-label"></label>
+      <select class="form-select" aria-label="Default select example" class="form-control" id="nivel" style="border-radius: 3px;
+        border: 1px solid #00000080" required>
+        <option selected>Abra o menu de seleção</option>
+        <option value="Básico">Básico</option>
+        <option value="Médio">Médio</option>
+        <option value="Avançado">Avançado</option>
+      </select>
+      <div class="valid-feedback">
+        Nível do curso preenchido
+      </div>
+      <div class="invalid-feedback">
+        Nível do curso é obrigatório
+      </div>
+    </div>
+
+    <div class="form-group col-md-12">
+      <label for="foto" class="form-label"></label>
+      <input type="text" class="form-control" id="foto" placeholder="URL da imagem" required>
+      <div class="valid-feedback">
+        Foto preenchida
+      </div>
+      <div class="invalid-feedback">
+        Foto é obrigatória
+      </div>
+    </div>
+      <div class="col-12" style="display: flex; gap: 10px">
+        <button onclick="saveCurso()" id="salvar-btn-curso" class="botao" background-color="black">Salvar</button>
+        <button onclick="tableShow('curso')" type="button" class="botao">Cancelar</button>
+      </div>
+  </div>
+</div>
+		
+	</form>

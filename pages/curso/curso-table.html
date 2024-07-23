@@ -1,0 +1,21 @@
+  <!-- Botao de criar novo item -->
+	<div class="cursotable">
+		<div class="d-flex gap-2" style="width: 500px; margin: auto; margin-top: 130px">
+		<button onclick="formShow('curso')" class="botao" type="button">Cadastrar novo Curso</button>
+			<button onclick="tableShow('dashboard')" class="botao" type="button">Voltar</button>
+		</div>
+		<br>
+		
+		  <!-- titulo lista de itens -->
+		  <h1>Lista de Cursos</h1>
+		<table class="table table-striped" style="text-align: center;">
+			<thead class="table-light">
+			</thead>
+			<tbody id="table-curso">
+			</tbody>
+		</table>
+		<span style="text-align: center;" id="mensage-table"></span>
+		<script>
+			getCursos()
+		</script>
+	</div>

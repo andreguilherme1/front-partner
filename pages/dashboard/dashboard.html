@@ -1,0 +1,44 @@
+<div class="esconder">
+<h1>Dashboard</h1>
+<div style="display: flex; flex-direction: row; gap: 10px; text-align: center; justify-content: space-between;">
+<div class="card" style="width: 18rem;">
+	<div class="card-body">
+		<h5 class="card-title">ALUNOS</h5>
+		<a onclick="tableShow('user')" class="botao">Alunos</a>
+	</div>
+</div>
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">CURSOS</h5>
+      <a onclick="tableShow('curso')" class="botao">Cursos</a>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<script>
+
+	async function get(resource) {
+		fetch("https://api-fullstack-base.onrender.com/" + resource, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${localStorage.getItem('token')}`
+			}
+		}).then((response) => {
+			return response.json()
+		}).then((data) => {
+			console.log('dados', data)
+			$("#" + resource + "-total").text('Total cadastrado: ' + data.length)
+
+		}).catch(() => {
+			// $("#mensage-table").html("<h6>Erro ao montar a tabela. Faça login</h6>")
+		})
+	}
+	setTimeout(() => {
+	get("users")
+  get("cursos")
+	},500)
+</script>
