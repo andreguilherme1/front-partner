@@ -28,7 +28,7 @@ function saveUser() {
 		).then(()=>{
 				$("#salvar-btn").text("Salvar") // muda o valor do botão de Salvar para Editar
 				getUsers()
-        window.location.href = 'https://front-fullstack-base9.vercel.app/'
+        window.location.href = 'https://front-partner.vercel.app/'
 				setTimeout(() => {
 					$("form").removeClass("was-validated")
 				}, 1)
@@ -53,7 +53,7 @@ function saveUser() {
 			console.log(resp.json())
 		$("#salvar-btn").text("Salvar") // muda o valor do botão de Salvar para Editar
 		getUsers()
-      window.location.href = 'https://front-fullstack-base9.vercel.app/'
+      window.location.href = 'https://front-partner.vercel.app/'
 		setTimeout(() => {
 			$("form").removeClass("was-validated")
 		}, 1)
@@ -65,5 +65,5 @@ function saveUser() {
 }
 
 function cancelarUser() {
-  window.location.href = 'https://front-fullstack-base9.vercel.app/'
+  window.location.href = 'https://front-partner.vercel.app/'
 }
