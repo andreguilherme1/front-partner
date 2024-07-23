@@ -2,8 +2,8 @@ async function getCursos() {
 	let token = localStorage.getItem('token');
   
 	if (!token) {
-		logout()	
-		$(".cursotable").hide()
+		//logout()	
+		//$(".cursotable").hide()
 	  return;
 	}
   
@@ -29,5 +29,5 @@ async function getCursos() {
 	}
   }
   
-  getCursos();
+
   

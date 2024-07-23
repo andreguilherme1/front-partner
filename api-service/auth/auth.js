@@ -89,7 +89,6 @@ async function login() {
 	$(".menu-nova-conta").show()
 	$(".tudo").show()
 	$("footer").show()
-	$("")
   }
   
   $("#userName").css({
